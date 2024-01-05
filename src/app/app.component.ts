@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'myFlix-Angular-client';
 
   constructor(public dialog: MatDialog) { }
+
   openUserRegistrationDialog(): void {
     this.dialog.open(UserRegistrationFormComponent, {width: '280px'});
   }

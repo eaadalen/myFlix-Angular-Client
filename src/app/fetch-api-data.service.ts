@@ -19,11 +19,13 @@ export class FetchApiDataService {
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http.post(apiUrl + 'users', userDetails).pipe(
-    catchError(this.handleError));
+      catchError(this.handleError)
+    );
   }
 
   public userLogin(userDetails: any): Observable<any>{
     console.log(userDetails);
+    console.log(apiUrl + 'login?Username=' + userDetails.Username + '&Password=' + userDetails.Password);
     return this.http.post(apiUrl + 'login?Username=' + userDetails.Username + '&Password=' + userDetails.Password, userDetails).pipe(
       catchError(this.handleError)
     );
