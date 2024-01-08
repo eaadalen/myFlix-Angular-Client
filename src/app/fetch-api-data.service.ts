@@ -32,9 +32,9 @@ export class FetchApiDataService {
   }
 
   getAllMovies(): Observable<any> {
-    console.log('getallmovies called'); 
+    //console.log('getallmovies called'); 
     const token = localStorage.getItem('token');
-    console.log('Token:', token);
+    //console.log('Token:', token);
     return this.http.get(apiUrl + 'movies', {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
@@ -82,9 +82,8 @@ export class FetchApiDataService {
 
   getOneUser(): Observable< any >{
     const token = localStorage.getItem('token');
-    const user = JSON.parse(localStorage.getItem('user') || '{}')
 
-    return this.http.get(apiUrl + 'users/' + user.username, {
+    return this.http.get(apiUrl + 'users/', {
       headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
