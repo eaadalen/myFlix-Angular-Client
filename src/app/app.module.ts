@@ -30,6 +30,7 @@ import { MovieInfoComponent } from './movie-info/movie-info.component';
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent  },
   { path: 'movies' , component: MovieCardComponent },
+  { path: 'user-profile' , component: UserProfileComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' }
 ]
 
