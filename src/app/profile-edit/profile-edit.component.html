@@ -1,1 +1,33 @@
-<p>profile-edit works!</p>
+<!DOCTYPE html>
+<mat-card>
+    <mat-card-content>  
+        <form style="font-size: 12px">
+            <h1>Update Profile</h1>
+            <mat-form-field class="user">
+                <span>Username</span>
+                <input type="text" name="username">
+            </mat-form-field>
+            <mat-form-field class="pwd">
+                <span>Password</span>
+                <input type="password" name="password" required>
+            </mat-form-field>
+            <mat-form-field class="mail">
+                <span>Email</span>
+                <input type="email" name="email">
+            </mat-form-field>
+            <mat-form-field class="bdy">
+                <span>Birthday</span><br>
+                <input type="date" name="birth_date">
+            </mat-form-field>
+            <mat-card-actions class="action-btn">
+                <button class="update-btn" mat-raised-button color="primary" (click)="updateUser()">
+                    Update Profile
+                </button>
+                <span class="spacer"></span>
+                <button class="delete-icon" mat-flat-button color="warn" (click)="deleteUser()" style="float: right;">
+                    Delete Profile
+                </button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+</mat-card>

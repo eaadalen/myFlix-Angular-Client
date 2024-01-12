@@ -3,7 +3,6 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { ProfileEditComponent } from '../profile-edit/profile-edit.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { formatDate } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -13,7 +12,6 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit{
-  // userinfo: User = {};
   user: any = {};
   favorites: any[] = [];
 
@@ -50,20 +48,5 @@ export class UserProfileComponent implements OnInit{
   editProfile() : void{
     this.dialog.open(ProfileEditComponent, {width: '400px',});
   }
-
-  // calls the deleteUser API and removes the user in the database
-  deleteUser(): void {
-      if(confirm('Do you want to delete your account permanently?')) {
-        this.router.navigate(['welcome']).then(() => {
-          localStorage.clear();
-          this.snackBar.open('Your account has been deleted', 'OK', {
-            duration: 3000
-          });
-        })
-        this.fetchApiData.deleteOneUser().subscribe((result) => {
-          console.log(result);
-        });
-      }
-    }
    
   }
