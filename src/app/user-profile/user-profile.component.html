@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <div class="profile-page">
-<div class="profile-container">
-  <div class="info-container ">
-      <div class="info">
-          <h1>Profile</h1>
-          <p>Username: <b>{{ user.username }}</b> </p>
-          <p>Email: <b>{{ user.email }}</b> </p>
-
-          <h2>Favorite Movies</h2>
-          <div *ngIf="favorite_movies.length === 0">
-              <p>No favorites.</p>
-          </div>
-      </div>
-      <mat-list>
-           <mat-list-item *ngFor="let movie of favorite_movies" >
-              <img matListItemAvatar src="{{movie.imageURL}}" />
-              <span matListItemTitle>{{movie.Title}}</span>
-          </mat-list-item>
-      </mat-list>
-  </div>
+    <div class="profile-container">
+        <div class="info-container ">
+            <div class="info">
+                <h1>Profile<button mat-flat-button color="basic" style="float: right;" (click)="editProfile()">Edit Profile</button></h1>
+                <p>Username: <b>{{ data.name }}</b></p>
+                <p>Email: <b>{{ data.email }}</b></p>
+                <p>Birthday: <b>{{ data.birthday }}</b></p>
+                <h1>Favorite Movies: </h1>
+                <div *ngIf= "user.FavoriteMovies.length === 0">
+                    <p>No favorites.</p>
+                </div>
+            </div>
+            <mat-list>
+                <mat-list-item *ngFor= "let movie of favorites" style="height:auto">
+                    <span matListItemTitle>{{movie.Title}}</span>
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </div>
+</div>
 
   <!-- <mat-card>
-      <mat-card-content>     -->
+      <mat-card-content>  
       <form>
       <h1>Update Profile</h1>
       <br>
@@ -47,7 +48,7 @@
               </mat-form-field>
       <br>
       <mat-card-actions class="action-btn">
-          <button class="update-btn" mat-raised-button  (click)="updateUser()">
+         <button class="update-btn" mat-raised-button  (click)="updateUser()">
               Update
           </button>
           <span class="spacer"></span>
@@ -56,10 +57,5 @@
           </button>
       </mat-card-actions>
   </form>
-<!-- </mat-card-content>
+    </mat-card-content>
 </mat-card> -->
-
-</div>
-</div>
-
-
