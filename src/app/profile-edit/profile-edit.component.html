@@ -5,19 +5,19 @@
             <h1>Update Profile</h1>
             <mat-form-field class="user">
                 <span>Username</span>
-                <input type="text" name="username">
+                <input matInput type="text" name="username" [(ngModel)]="userData.Username">
             </mat-form-field>
             <mat-form-field class="pwd">
                 <span>Password</span>
-                <input type="password" name="password" required>
+                <input matInput type="password" name="password" required [(ngModel)]="userData.Password">
             </mat-form-field>
             <mat-form-field class="mail">
                 <span>Email</span>
-                <input type="email" name="email">
+                <input matInput type="email" name="email"v [(ngModel)]="userData.Email">
             </mat-form-field>
             <mat-form-field class="bdy">
                 <span>Birthday</span><br>
-                <input type="date" name="birth_date">
+                <input matInput type="date" name="birth_date" [(ngModel)]="userData.Birthday">
             </mat-form-field>
             <mat-card-actions class="action-btn">
                 <button class="update-btn" mat-raised-button color="primary" (click)="updateUser()">
