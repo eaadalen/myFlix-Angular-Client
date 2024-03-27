@@ -5,6 +5,7 @@ import { GenreComponent } from '../genre/genre.component';
 import { DirectorComponent } from '../director/director.component';
 import { MovieInfoComponent } from '../movie-info/movie-info.component';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
@@ -19,7 +20,9 @@ export class MovieCardComponent implements OnInit {
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialog: MatDialog) {}
+    public dialog: MatDialog,
+    private router: Router
+    ) {}
   
   ngOnInit(): void {
       this.getMovies();
@@ -69,6 +72,12 @@ viewProfile(name: string, email: string, birthday: string): void {
     },
     width: '400px',
   });
+}
+
+logout(): void {
+  localStorage.setItem('user', "");
+  localStorage.setItem('token', "");
+  this.router.navigate(['welcome']);
 }
 
 addToFavorites(movieId: string): void {
